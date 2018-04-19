@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)http://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" ng-app="myApp">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+	<meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="X-UA-Compatible" content="IE=11" />
+        <meta http-equiv="X-UA-Compatible" content="IE=10" />
+        <meta name="robots" content="noindex, nofollow">
+        <meta name="googlebot" content="noindex">
+        <title>VisioSeed</title>
+        <meta name="description" content="">
+        <!-- tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css assets/styles/vendor.css -->
+
+			<!-- Bootstrap Toogle Button CDN version-->
+ 	<script src="angular.min.js"></script>
+
+	<script src="smartApp.js"></script>
+	<script src="smartController.js"></script>
+	<script src="smartService.js"></script>
+	<script src="smartFactory.js"></script>
+
+
+        <!-- bower:css -->
+        <link rel="stylesheet" href="select2/select2.css">
+
+	<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" rel="stylesheet">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.bundle.min.js" rel="stylesheet">
+	<script> </script>
+
+
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
+	<link href="toggle.css" rel="stylesheet">
+	
+
+  </head>
+
+  <body class="vsc-initialized " ng-app="myApp">
+	
+    <header>
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="http://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/#"> FullControl
+		</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto" style="margin-left: 20px;">
+            <li class="nav-item active">
+              <a class="nav-link" href="http://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/#">
+			  <i class="fab fa-envira"></i>
+			  &nbsp;
+			  ILuminação  <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/#">
+			  <i class="fa fa-cog"></i>
+			  &nbsp;
+			  Análise de Consumo</a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" href="http://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/#">
+			  <i class="fa fa-download"></i>
+			  &nbsp;
+			  Download de Análises</a>
+            </li>
+          </ul>
+          <form class="form-inline mt-2 mt-md-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Begin page content -->
+    <main role="main" class="container" ng-controller="smartController">
+      <div class="row" ng-init="ae()">
+							
+								<div class="col-lg-6 centered" style="margin: 0 auto;background-color: #F5F5DC; border: 2px solid black; border-radius: 25px; margin-bottom: 20px; margin-top: 20px;">								
+									<div class="modal-header">
+										<h4 class="modal-title" style="text-align: center; margin: 0 auto;">	
+											<span style="text-align: center;">Iluminação por Cômodos</span>
+										</h4>
+									</div>
+									<form class="form" name="validationForm" autocomplete="off" novalidate>
+										<div class="row">
+											<div class="col-lg-12" style="text-align: center; margin: 0 auto;">
+												<div class="modal-body" style="border-bottom: 1px solid black; margin-bottom: 10px;">												
+													<div  class="form-group form-select2">
+															<label
+																for="field"
+																class="control-label">
+																Sala de Estar
+															</label>
+															</br>
+															<!-- Rounded switch -->
+															<label class="switch">
+																<input type="checkbox">
+																<span class="slider round"></span>
+															</label>
+															
+															
+													</div>
+																										
+												</div>
+											</div>
+											<div class="col-lg-12" style="text-align: center; margin: 0 auto;">
+												<div class="modal-body" style="border-bottom: 1px solid black; margin-bottom: 10px;">												
+													<div  class="form-group form-select2">
+															<label
+																for="field"
+																class="control-label">Cozinha:
+															</label>
+															</br>
+															<!-- Rounded switch -->
+															<label class="switch">
+																<input type="checkbox">
+																<span class="slider round"></span>
+															</label>
+															
+													</div>
+																										
+												</div>
+											</div>
+											<div class="col-lg-12" style="text-align: center; margin: 0 auto;">
+												<div class="modal-body" style="border-bottom: 1px solid black; margin-bottom: 10px;">												
+													<div  class="form-group form-select2">
+															<label
+																for="field"
+																class="control-label">Quarto 1:
+															</label>
+															</br>
+															<!-- Rounded switch -->
+															<label class="switch">
+																<input type="checkbox">
+																<span class="slider round"></span>
+															</label>
+															
+													</div>
+																										
+												</div>
+											</div>
+											<div class="col-lg-12" style="text-align: center; margin: 0 auto;">
+												<div class="modal-body" style="border-bottom: 1px solid black; margin-bottom: 10px;">												
+													<div  class="form-group form-select2">
+															<label
+																for="field"
+																class="control-label">Banheiro
+															</label>
+															</br>
+															<!-- Rounded switch -->
+															<label class="switch">
+																<input type="checkbox">
+																<span class="slider round"></span>
+															</label>
+															
+													</div>
+																										
+												</div>
+											</div>
+										
+					
+											
+											
+											
+											<div class="col-lg-12">			
+												<div class="modal-footer">
+													<button
+													type="button"
+													class="btn btn-warning">
+													<i class="fa fa-refresh"></i>
+													&nbsp;
+													<span>Reset</span>
+													</button>
+													<button
+														type="submit"
+														class="btn btn-primary">
+														<span>Save</span>
+														<i class="fa fa-check"></i>
+														&nbsp;
+													</button>
+													<button
+														type="button"  
+														class="btn btn-danger pull-left">
+														<i class="fa fa-reply"></i>
+														&nbsp;
+														<span>Cancel</span>
+													</button>
+												</div>
+											</div>
+										</div>
+									</form>
+									</div>
+								</div>
+    </main>
+
+    <footer class="footer" style="height: 100px;">
+      <div class="container">
+		<div class="row">
+                <div class="col-md-12">
+
+                        <strong>Copyright &copy; 2018 FullControl, Inc. All rights reserved.</strong>
+				</div>
+		</div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="popper.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+  
+
+</body></html>
