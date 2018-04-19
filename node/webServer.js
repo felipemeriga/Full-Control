@@ -14,8 +14,8 @@ app.get('/listUsers', function (req, res) {
     });
 })
 
-app.get('/resource/lampada/', function (req, res) {
-    manager.blinkLED;
+app.get('/resource/lampada', function (req, res) {
+    manager.setInterval;
 })
 
 app.get('/home', function (req, res) {

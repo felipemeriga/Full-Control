@@ -24,6 +24,7 @@
   "homepage": "https://github.com/silva-samuel/full-control#readme",
   "dependencies": {
     "commander": "^2.15.1",
+    "express": "^4.16.3",
     "ng": "0.0.0-rc6",
     "onoff": "^3.0.2"
   }
