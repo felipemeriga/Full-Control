@@ -15,8 +15,8 @@ app.get('/listUsers', function (req, res) {
 })
 
 app.get('/lampada', function (req, res) {
-    manager.setInterval;
-    res.send(data);
+    manager.blinkLED;
+    res.send(1);
 })
 
 app.get('/home', function (req, res) {
