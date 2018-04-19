@@ -14,7 +14,7 @@ app.get('/listUsers', function (req, res) {
     });
 })
 
-app.get('/resource/lampada', function (req, res) {
+app.get('/lampada', function (req, res) {
     manager.setInterval;
 })
 

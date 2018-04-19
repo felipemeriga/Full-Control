@@ -8,13 +8,19 @@ import { ManagerService } from './service/manager.service';
 })
 export class ManagerComponent implements OnInit {
 
+    number: Number;
+
   constructor(private managerService: ManagerService) { }
 
   ngOnInit() {
   }
 
   turn(){
-      this.managerService.turn(true);
+    this.managerService.turn(true).subscribe(
+        data => {
+            this.number = data;
+        }
+    );
   }
 
 }
