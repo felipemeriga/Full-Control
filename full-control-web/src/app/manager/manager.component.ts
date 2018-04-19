@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ManagerService } from './service/manager.service';
 
 @Component({
   selector: 'app-manager',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManagerComponent implements OnInit {
 
-  constructor() { }
+    number: Number;
+
+  constructor(private managerService: ManagerService) { }
 
   ngOnInit() {
+  }
+
+  turn(){
+    this.managerService.turn(true).subscribe(
+        data => {
+            this.number = data;
+        }
+    );
   }
 
 }
