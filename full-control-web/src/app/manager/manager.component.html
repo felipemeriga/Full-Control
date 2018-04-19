@@ -1,5 +1,9 @@
 <p>
-    <button type="button" class="btn btn-secondary btn-sm" (click)="turn()"  id="authorize">
-        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Turn ON
+    <button type="button" class="btn btn-secondary btn-sm" (click)="turnLed()">
+        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Turn LED {{varTurnLed.msg == '0' ? 'OFF' : 'ON'}}
+    </button>
+
+    <button type="button" class="btn btn-secondary btn-sm" (click)="turnMotor()" >
+        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Turn MOTOR {{varTurnMotor.msg == '0' ? 'OFF' : 'ON'}}
     </button>
 </p>

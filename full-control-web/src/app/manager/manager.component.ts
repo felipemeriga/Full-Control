@@ -8,17 +8,28 @@ import { ManagerService } from './service/manager.service';
 })
 export class ManagerComponent implements OnInit {
 
-    number: Number;
+    varTurnLed = {msg: "0"};
+    varTurnMotor = {msg: "0"};
 
   constructor(private managerService: ManagerService) { }
 
   ngOnInit() {
   }
 
-  turn(){
-    this.managerService.turn(true).subscribe(
+  turnLed(){
+    this.managerService.turnLed().subscribe(
         data => {
-            this.number = data;
+            this.varTurnLed.msg = data;
+            console.log(this.varTurnLed)
+        }
+    );
+  }
+
+  turnMotor(){
+    this.managerService.turnMotor().subscribe(
+        data => {
+            this.varTurnMotor.msg = data;
+            console.log(this.varTurnMotor)
         }
     );
   }

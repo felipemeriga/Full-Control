@@ -10,10 +10,16 @@ export class ManagerService {
 
     constructor(private http: HttpClient) { }
 
-    turn(turn: boolean): Observable<Number> {
-        console.log(ServiceUtil.baseUrl + '/home');
+    turnLed(): Observable<string> {
         return this.http
             .get(ServiceUtil.baseUrl + '/lampada', {headers: this.headerList})
+            .map(ServiceUtil.map)
+            .catch(ServiceUtil.handleError);
+    }
+
+    turnMotor(): Observable<string> {
+        return this.http
+            .get(ServiceUtil.baseUrl + '/motor', {headers: this.headerList})
             .map(ServiceUtil.map)
             .catch(ServiceUtil.handleError);
     }
