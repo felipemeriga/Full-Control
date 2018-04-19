@@ -1,0 +1,30 @@
+{
+  "name": "full-control",
+  "version": "1.0.0",
+  "description": "CSGHack - Full Control project",
+  "main": "mock_amp_converter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silva-samuel/full-control.git"
+  },
+  "keywords": [
+    "CSG",
+    "HACK",
+    "CSGHACK",
+    "FULLCONTROL"
+  ],
+  "author": "Michael Robles, Samuel Silva, Felipe Silva, Guilherme Sussel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/silva-samuel/full-control/issues"
+  },
+  "homepage": "https://github.com/silva-samuel/full-control#readme",
+  "dependencies": {
+    "commander": "^2.15.1",
+    "ng": "0.0.0-rc6",
+    "onoff": "^3.0.2"
+  }
+}
