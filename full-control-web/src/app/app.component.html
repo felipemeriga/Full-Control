@@ -1,54 +1,47 @@
 <div class="container-fluid">
-    <<header>
-            <!-- Fixed navbar -->
-            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-              <a class="navbar-brand" href="http://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/#"> FullControl
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="http://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/#"> FullControl
               </a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto" style="margin-left: 20px;">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="http://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/#">
-                    <i class="fab fa-envira"></i>
-                    &nbsp;
-                    ILuminação  <span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="http://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/#">
-                    <i class="fa fa-cog"></i>
-                    &nbsp;
-                    Análise de Consumo</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="http://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/#">
-                    <i class="fa fa-download"></i>
-                    &nbsp;
-                    Download de Análises</a>
-                  </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="http://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/#">
+                            <i class="fab fa-envira"></i> &nbsp; ILuminação <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/#">
+                            <i class="fa fa-cog"></i> &nbsp; Análise de Consumo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/#">
+                            <i class="fa fa-download"></i> &nbsp; Download de Análises</a>
+                    </li>
                 </ul>
                 <form class="form-inline mt-2 mt-md-0">
-                  <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
-              </div>
-            </nav>
-          </header>
-          <main role="main" class="container" ng-controller="smartController">
-            <div class="row">
-                <app-monitor ngClass="col lg-6"></app-monitor>
-                <app-manager ngClass="col lg-6"></app-manager>
             </div>
-          </main>
-          <footer class="footer" style="height: 100px;">
-                <div class="container">
-                  <div class="row">
-                          <div class="col-md-12">
-          
-                                  <strong>Copyright &copy; 2018 FullControl, Inc. All rights reserved.</strong>
-                          </div>
-                  </div>
+        </nav>
+    </header>
+    <main role="main" class="container" ng-controller="smartController">
+        <div style="margin-top:50px" class="row">
+            <app-manager ngClass="col lg-6 "></app-manager>
+            <app-monitor style="margin-top:20px" ngClass="col lg-6"></app-monitor>
+        </div>
+    </main>
+    <footer class="footer " style="height: 100px; ">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-md-12 ">
+                    <strong>Copyright &copy; 2018 FullControl, Inc. All rights reserved.</strong>
                 </div>
-              </footer>
+            </div>
+        </div>
+    </footer>
 </div>

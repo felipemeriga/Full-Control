@@ -7,6 +7,9 @@ const resValue = 35.4;
 const refValue = 2.5;
 
 module.exports = {
+    resValue,
+
+    refValue,
 
     // Random near real ampere value
     // Randomly generates an current value
