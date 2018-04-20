@@ -1,15 +1,21 @@
-var express = require('express');
-var cors = require('cors');
-var Gpio = require('onoff').Gpio; //include onoff to interact with the GPIO
-//var Pwd = require('raspi-pwm')
+var express = require('express'),
+    cors = require('cors'),
+    Gpio = require('onoff').Gpio, //include onoff to interact with the GPIO
+    GpioPwm = require('pigpio').Gpio,
+    fs = require("fs");
 
-var LED = new Gpio(4, 'out'); //use GPIO pin 4, and specify that it is output
-var MOTOR = new Gpio(17, 'out'); //use GPIO pin 4, and specify that it is output
+const vel = 25,
+    max = 250,
+    min = vel,
+    med = 125;
+
+var LED = new Gpio(4, 'out'), //use GPIO pin 4, and specify that it is output
+    MOTORPWM = new GpioPwm(17, {mode: GpioPwm.OUTPUT}),
+    MOTOR = new Gpio(17, 'out'),
+    dutyCycle = 125,
+    app = express();
 
 //var MOTORCONTROL = new Pwd('P1-12');
-
-var app = express();
-var fs = require("fs");
 
 app.use(cors())
 
@@ -21,35 +27,44 @@ app.get('/listUsers', function (req, res) {
 })
 
 app.get('/motor', function (req, res) {
-    if (MOTOR.readSync() === 0) { //check the pin state, if the state is 0 (or off)
-        MOTOR.writeSync(1); //set pin state to 1 (turn MOTOR on)
-    } else {
-        MOTOR.writeSync(0); //set pin state to 0 (turn MOTOR off)
+    blinkMOTOR();
+    console.log(MOTOR.readSync());
+    if (MOTOR.readSync() === 1){
+        MOTORPWM.analogWrite(med);
+        dutyCycle = med;
+    }else{
+        MOTORPWM.analogWrite(0);
     }
     res.json({msg: MOTOR.readSync()})
 })
 
-/*app.get('/motorcontrol', function (req, res) {
-    MOTORCONTROL.write(0.5);
-    res.json({msg: "foi"})
-})*/
-
-app.get('/lampada', function (req, res) {
-    if (LED.readSync() === 1) { //check the pin state, if the state is 1 (or off)
-        LED.writeSync(0); //set pin state to 0 (turn LED on)
-    } else {
-        LED.writeSync(1); //set pin state to 1 (turn LED off)
+app.get('/motorcontrolup', function (req, res) {
+    console.log(MOTOR.readSync());
+    if (MOTOR.readSync() === 1 && dutyCycle < max){
+        MOTORPWM.pwmWrite(dutyCycle + vel);
+        dutyCycle = dutyCycle + vel;
+        console.log("dutyCycle " + dutyCycle);
+        res.json({msg: MOTORPWM.getPwmDutyCycle()})
+    }else{
+        res.json({msg: "Motor is off!"})
     }
-    res.json({msg: LED.readSync()})
 })
 
-app.get('/motor', function (req, res) {
-    if (LED.readSync() === 0) { //check the pin state, if the state is 0 (or off)
-        LED.writeSync(1); //set pin state to 1 (turn LED on)
-    } else {
-        LED.writeSync(0); //set pin state to 0 (turn LED off)
+app.get('/motorcontroldown', function (req, res) {
+    console.log(MOTOR.readSync());
+    if (MOTOR.readSync() === 1 && dutyCycle > min){
+        MOTORPWM.pwmWrite(dutyCycle - vel);
+        dutyCycle = dutyCycle - vel;
+        console.log("dutyCycle " + dutyCycle);
+        res.json({msg: MOTORPWM.getPwmDutyCycle()})
+    }else{
+        res.json({msg: "Motor is off!"})
     }
-    res.json({msg: 'This is working!'})
+})
+
+app.get('/lampada', function (req, res) {
+    blinkLED();  
+    res.json({msg: LED.readSync()})
 })
 
 app.get('/home', function (req, res) {
@@ -64,7 +79,30 @@ var server = app.listen(8081, function () {
 
     var host = server.address().address
     var port = server.address().port
+    LED.writeSync(1);
 
-    console.log("Example app listening at http://%s:%s", host, port)
+    console.log("Example app listening at http://%s:%s", host, port);
 
 })
+
+function blinkLED() { //function to start blinking
+    if (LED.readSync() === 1) { //check the pin state, if the state is 1 (or off)
+        LED.writeSync(0); //set pin state to 0 (turn LED on)
+    } else {
+        LED.writeSync(1); //set pin state to 1 (turn LED off)
+    }
+}
+
+function blinkMOTOR() { //function to start blinking
+    if (MOTOR.readSync() === 0) { //check the pin state, if the state is 0 (or off)
+        MOTOR.writeSync(1); //set pin state to 1 (turn LED on)
+    } else {
+        MOTOR.writeSync(0); //set pin state to 0 (turn LED off)
+    }
+}
+  
+function endBlink() { //function to stop blinking
+    clearInterval(blinkInterval); // Stop blink intervals
+    LED.writeSync(1); // Turn LED off
+    LED.unexport(); // Unexport GPIO to free resources
+}

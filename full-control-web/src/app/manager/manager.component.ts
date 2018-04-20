@@ -20,7 +20,6 @@ export class ManagerComponent implements OnInit {
     this.managerService.turnLed().subscribe(
         data => {
             this.varTurnLed.msg = data;
-            console.log(this.varTurnLed)
         }
     );
   }
@@ -29,16 +28,22 @@ export class ManagerComponent implements OnInit {
     this.managerService.turnMotor().subscribe(
         data => {
             this.varTurnMotor.msg = data;
-            console.log(this.varTurnMotor)
         }
     );
   }
 
-  controlMotor(){
-    this.managerService.controlMotor().subscribe(
+  controlMotorUp(){
+    this.managerService.controlMotorUp().subscribe(
         data => {
             this.varTurnMotor.msg = data;
-            console.log(this.varTurnMotor)
+        }
+    );
+  }
+
+  controlMotorDown(){
+    this.managerService.controlMotorDown().subscribe(
+        data => {
+            this.varTurnMotor.msg = data;
         }
     );
   }

@@ -6,7 +6,7 @@ import ServiceUtil from '../../shared/Service.Util';
 @Injectable()
 export class ManagerService {
 
-    headerList = ServiceUtil.getHttpHeaders('text/html', 'text/html');
+    headerList = ServiceUtil.getHttpHeaders('application/json', 'application/json');
 
     constructor(private http: HttpClient) { }
 
@@ -24,9 +24,16 @@ export class ManagerService {
             .catch(ServiceUtil.handleError);
     }
 
-    controlMotor(): Observable<string> {
+    controlMotorUp(): Observable<string> {
         return this.http
-            .get(ServiceUtil.baseUrl + '/motorcontrol', {headers: this.headerList})
+            .get(ServiceUtil.baseUrl + '/motorcontrolup', {headers: this.headerList})
+            .map(ServiceUtil.map)
+            .catch(ServiceUtil.handleError);
+    }
+
+    controlMotorDown(): Observable<string> {
+        return this.http
+            .get(ServiceUtil.baseUrl + '/motorcontroldown', {headers: this.headerList})
             .map(ServiceUtil.map)
             .catch(ServiceUtil.handleError);
     }
