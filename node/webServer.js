@@ -30,10 +30,10 @@ app.get('/motor', function (req, res) {
     blinkMOTOR();
     console.log(MOTOR.readSync());
     if (MOTOR.readSync() === 1){
-        MOTORPWM.analogWrite(med);
+        MOTORPWM.pwmWrite(med);
         dutyCycle = med;
     }else{
-        MOTORPWM.analogWrite(0);
+        MOTORPWM.pwmWrite(0);
     }
     res.json({msg: MOTOR.readSync()})
 })
