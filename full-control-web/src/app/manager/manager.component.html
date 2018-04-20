@@ -1,9 +1,81 @@
-<p>
-    <button type="button" class="btn btn-secondary btn-sm" (click)="turnLed()">
-        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Turn LED {{varTurnLed.msg == '0' ? 'OFF' : 'ON'}}
-    </button>
-
-    <button type="button" class="btn btn-secondary btn-sm" (click)="turnMotor()" >
-        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Turn MOTOR {{varTurnMotor.msg == '0' ? 'OFF' : 'ON'}}
-    </button>
-</p>
+		
+    <div class="col-lg-12 centered" style="margin: 0 auto;background-color: #F5F5DC; border: 2px solid black; border-radius: 25px; margin-bottom: 20px; margin-top: 20px;">								
+        <div class="modal-header">
+            <h4 class="modal-title" style="text-align: center; margin: 0 auto;">	
+                <span style="text-align: center;">Iluminação por Cômodos</span>
+            </h4>
+        </div>
+        <div class="row">
+            <div class="col-lg-12" style="text-align: center; margin: 0 auto;">
+                <div class="modal-body" style="border-bottom: 1px solid black; margin-bottom: 10px;">												
+                    <div  class="form-group form-select2">
+                        <label
+                            for="field"
+                            class="control-label">
+                            Sala de Estar
+                        </label>
+                        <br>
+                        <!-- Rounded switch -->
+                        <label class="switch">
+                            <input type="checkbox" (click)="turnLed()">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>                                                       
+                </div>
+            </div>
+            <div class="col-lg-12" style="text-align: center; margin: 0 auto;">
+                <div class="modal-body" style="border-bottom: 1px solid black; margin-bottom: 10px;">												
+                    <div  class="form-group form-select2">
+                            <label
+                                for="field"
+                                class="control-label">Cozinha:
+                            </label>
+                            <br>
+                            <!-- Rounded switch -->
+                            <label class="switch">
+                                <input type="checkbox" (click)="turnMotor()">
+                                <span class="slider round"></span>
+                            </label>
+                            
+                    </div>
+                                                                        
+                </div>
+            </div>
+            <div class="col-lg-12" style="text-align: center; margin: 0 auto;">
+                <div class="modal-body" style="border-bottom: 1px solid black; margin-bottom: 10px;">												
+                    <div  class="form-group form-select2">
+                            <label
+                                for="field"
+                                class="control-label">Quarto 1:
+                            </label>
+                            <br>
+                            <!-- Rounded switch -->
+                            <label class="switch">
+                                <input type="checkbox" (click)="controlMotor()">
+                                <span class="slider round"></span>
+                            </label>
+                            
+                    </div>
+                                                                        
+                </div>
+            </div>
+            <div class="col-lg-12" style="text-align: center; margin: 0 auto;">
+                <div class="modal-body" style="margin-bottom: 10px;">												
+                    <div  class="form-group form-select2">
+                            <label
+                                for="field"
+                                class="control-label">Banheiro
+                            </label>
+                            <br>
+                            <!-- Rounded switch -->
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                            
+                    </div>
+                                                                        
+                </div>
+            </div>
+        </div>
+    </div>

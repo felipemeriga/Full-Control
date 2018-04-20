@@ -24,4 +24,11 @@ export class ManagerService {
             .catch(ServiceUtil.handleError);
     }
 
+    controlMotor(): Observable<string> {
+        return this.http
+            .get(ServiceUtil.baseUrl + '/motorcontrol', {headers: this.headerList})
+            .map(ServiceUtil.map)
+            .catch(ServiceUtil.handleError);
+    }
+
 }

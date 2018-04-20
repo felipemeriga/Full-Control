@@ -34,4 +34,13 @@ export class ManagerComponent implements OnInit {
     );
   }
 
+  controlMotor(){
+    this.managerService.controlMotor().subscribe(
+        data => {
+            this.varTurnMotor.msg = data;
+            console.log(this.varTurnMotor)
+        }
+    );
+  }
+
 }

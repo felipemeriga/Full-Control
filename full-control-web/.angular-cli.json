@@ -19,6 +19,9 @@
         "prefix": "app",
         "styles": [
             "styles.css",
+            "style.css",
+            "css/style.css",
+            "css/toggle.css",
             "../node_modules/bootstrap/dist/css/bootstrap.min.css"
         ],
         "scripts": [
